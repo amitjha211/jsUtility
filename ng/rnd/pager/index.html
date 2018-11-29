@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<html>
+    <head>
+        <meta charset="utf-8" />
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <link href="http://localhost/global/bootstrap-admin2/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>        
+        <!-- Morris Charts CSS -->
+        <!-- Custom Fonts -->
+        <link href="http://localhost/global/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <script src="http://localhost/global/bootstrap-admin2/vendor/jquery/jquery.min.js"></script>
+        <!--Bootstrap Core JavaScript -->
+        <script src="http://localhost/global/bootstrap-admin2/vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="http://localhost/global/ng/angular.min.1.6.js"></script>
+        <script src="test.js"></script>
+    </head>
+    <body ng-app="myApp" ng-controller="test1">
+        <div class="container-fluid">
+            <hr/>
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="text"  class="form-control" />
+                </div>
+            </div>
+            <div class="row" ng-controller="pager">
+                
+                <div class="col-md-5">
+                </div>
+                
+                <div class="col-md-7">
+                    
+                    <ul class="pagination" style="margin-top:4px;margin-bottom:1px;">
+                        <li >
+                            <a>
+                                Page Size : <button class="btn btn-default btn-xs">A</button>
+                            </a>
+                        </li>
+                        <li >
+                            <a>Records : <span class="badge badge-primary" ng-bind="count"></span></a>
+                        </li>
+                        <li >
+                            <a>Pages : <span class="badge badge-primary" ng-bind="getPageCount()"></span></a>
+                        </li>
+                    
+                        <li >
+                            <a href="javascript:;" ng-click="moveFirst()" ng-show="getPageCount() > pageButtons.length">
+                                <i class="fa fa-step-backward"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" aria-label="Previous" ng-show="getPageCount() > pageButtons.length" ng-click="movePreviousPageGroup()" >
+                                <span aria-hidden="true">&laquo;</span> 
+                            </a>
+                        </li>
+                        <li  ng-repeat="r in pageButtons"  ng-class="{ 'active': r == pageIndex }" ng-show="r < getPageCount()" >
+                            <a href="javascript:;" ng-click="changePage(r)"  ng-bind="r + 1" ></a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" aria-label="Next" ng-show="getPageCount() > pageButtons.length" ng-click="moveNextPageGroup()" ><span aria-hidden="true">&raquo;</span> 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;" ng-click="moveLast()" ng-show="getPageCount() > pageButtons.length">
+                            <i class="fa fa-step-forward"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
